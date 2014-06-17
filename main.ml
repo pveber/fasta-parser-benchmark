@@ -12,13 +12,14 @@ let input_file = Sys.argv.(1)
 
 let functions = [
   "manual-with-streams", Manual_with_streams.total_length ;
+(*   "lex-with-streams", Lex_with_streams.total_length ; *)
   "biocaml-with-streams", Biocaml_with_streams.total_length ;
 ]
 
 let bench to_string fs =
   List.iter fs ~f:(fun (label, f) ->
       let (y, t) = time f input_file in
-      printf "% 32s | % 16.2f | % 16s\n" label t (to_string y)
+      printf "% 32s | % 16.2f | % 16s\n%!" label t (to_string y)
     )
 
 let () = bench string_of_int functions
