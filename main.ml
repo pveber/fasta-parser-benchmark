@@ -11,7 +11,11 @@ let time f x =
 let input_file = Sys.argv.(1)
 
 let functions = [
+  "manual-direct", Manual_direct.total_length ;
+  "manual-direct-lwt", Manual_direct_lwt.total_length ;
+  "manual-direct-exn", Manual_direct_exn.total_length ;
   "manual-with-streams", Manual_with_streams.total_length ;
+  "manual-with-lazy-lists", Manual_withlazy_lists.total_length ;
 (*   "lex-with-streams", Lex_with_streams.total_length ; *)
   "biocaml-with-streams", Biocaml_with_streams.total_length ;
 ]
